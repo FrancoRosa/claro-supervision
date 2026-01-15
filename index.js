@@ -166,13 +166,8 @@ function guardar() {
   save(h);
   render();
 
-  // Submit to Google Form using a hidden form to bypass CORS
-  var form = document.createElement("form");
-  form.method = "POST";
-  form.action = GOOGLE_FORM_URL;
-  form.target = "_blank"; // Opens in new tab to avoid page redirect
-
-  var entries = {
+  // Submit to Google Form using fetch to avoid redirects
+  const entries = {
     "entry.103339169": r.fecha,
     "entry.2004622468": r.hora,
     "entry.361164291": r.supervisor,
@@ -188,17 +183,15 @@ function guardar() {
     "entry.1968808711": r.duracion,
   };
 
-  for (var entry in entries) {
-    var input = document.createElement("input");
-    input.type = "hidden";
-    input.name = entry;
-    input.value = entries[entry];
-    form.appendChild(input);
+  const formData = new FormData();
+  for (const [key, value] of Object.entries(entries)) {
+    formData.append(key, value);
   }
-
-  document.body.appendChild(form);
-  form.submit();
-  document.body.removeChild(form);
+  fetch(GOOGLE_FORM_URL, {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).catch(err => console.error('Submission error:', err));
 }
 
 /* ================= RENDER ================= */
