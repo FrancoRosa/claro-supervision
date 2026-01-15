@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>App Supervisión - Claro</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+
+  <body>
+    <!-- LOGIN -->
+    <div id="loginPanel" class="panel">
+      <h3>Ingreso de Supervisor</h3>
+      <label>Usuario</label>
+      <select id="loginUser">
+        <option value="">Seleccione</option>
+        <option>Javier Aparicio</option>
+        <option>Xavier Santisteban</option>
+        <option>Rene Flores</option>
+        <option>Yohan Chavez</option>
+      </select>
+      <label>PIN</label>
+      <input id="loginPin" type="password" maxlength="4" />
+      <button id="loginBtn">Ingresar</button>
+    </div>
+
+    <!-- APP -->
+    <div id="appPanel" class="hidden">
+      <button id="logoutBtn" style="background: #666; margin-bottom: 10px">
+        Cerrar sesión
+      </button>
+      <h2>App de Supervisión - Claro</h2>
+
+      <!-- FORM -->
+      <div class="panel">
+        <div class="row">
+          <div class="col">
+            <label>Supervisor</label>
+            <select id="supervisor"></select>
+          </div>
+
+          <div class="col">
+            <label>Departamento</label>
+            <select id="departamento">
+              <option value="">Seleccione</option>
+              <option>Apurímac</option>
+              <option>Cusco</option>
+              <option>Madre de Dios</option>
+            </select>
+          </div>
+
+          <div class="col">
+            <label>Distrito</label>
+            <select id="distrito" disabled></select>
+          </div>
+
+          <div class="col">
+            <label>Actividad</label>
+            <select id="actividad">
+              <option value="">Seleccione</option>
+              <option value="almuerzo">Almuerzo</option>
+              <option value="capacitacion">Capacitación</option>
+              <option value="charla">Charla 5 minutos</option>
+              <option value="desplazamiento">Desplazamiento</option>
+              <option value="evaluacion">Evaluación práctica</option>
+              <option value="otras">Otras</option>
+              <option value="checklist">Checklist</option>
+              <option value="planos">Planos</option>
+              <option value="tdr">TDR</option>
+              <option value="supervision">Supervisión</option>
+              <option value="oficina">Oficina</option>
+            </select>
+          </div>
+
+          <div class="col">
+            <label>Contrata</label>
+            <select id="contrata">
+              <option>CLARO</option>
+              <option>CICSA</option>
+              <option>CONECTA</option>
+              <option>DIMERA</option>
+              <option>FEBEZA</option>
+              <option>FIBER</option>
+              <option>LPS</option>
+              <option>TELEMEGATIC</option>
+              <option>WEBSOL</option>
+              <option>XTEND</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- OBSERVACIONES -->
+      <div id="obsFields" class="panel hidden">
+        <label id="obsLabel"></label>
+        <input id="obsInput" />
+      </div>
+
+      <!-- OFICINA -->
+      <div id="officeFields" class="panel hidden">
+        <label>Tipo trabajo oficina</label>
+        <select id="officeSelect">
+          <option>Reuniones</option>
+          <option>Rendiciones</option>
+          <option>Apoyo administrativo</option>
+        </select>
+      </div>
+
+      <!-- SUPERVISION -->
+      <div id="supervisionFields" class="panel hidden">
+        <label>Tecnología</label>
+        <select id="tecnologia">
+          <option>HFC</option>
+          <option>FTTH</option>
+        </select>
+        <label>SOT</label><input id="sot" />
+        <label>Tipo trabajo</label>
+        <select id="tipoTrabajo">
+          <option>Instalación</option>
+          <option>Mantenimiento</option>
+          <option>Post venta</option>
+        </select>
+      </div>
+
+      <!-- TIMER -->
+      <div class="panel">
+        <div id="timeDisplay" style="font-size: 22px; font-weight: bold">
+          00:00:00
+        </div>
+        <div class="controls">
+          <button id="startBtn">Iniciar</button>
+          <button id="pauseBtn">Pausar</button>
+          <button id="stopBtn">Detener</button>
+          <button id="exportBtn" style="background: #2e7d32">
+            Exportar Excel
+          </button>
+        </div>
+      </div>
+
+      <!-- HISTORIAL -->
+      <div class="panel">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Supervisor</th>
+              <th>Departamento</th>
+              <th>Distrito</th>
+              <th>Zona</th>
+              <th>Actividad</th>
+              <th>Contrata</th>
+              <th>Tecnología</th>
+              <th>SOT</th>
+              <th>Tipo</th>
+              <th>Obs</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody id="histBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="./index.js" defer></script>
+  </body>
+</html>

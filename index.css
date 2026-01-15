@@ -1,0 +1,59 @@
+body {
+        font-family: Arial;
+        margin: 16px;
+        color: #222;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .col {
+        flex: 1 1 220px;
+      }
+      label {
+        font-size: 13px;
+        margin-bottom: 4px;
+        display: block;
+      }
+      select,
+      input,
+      button {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+      button {
+        background: #0b70c9;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      .panel {
+        border: 1px solid #ddd;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        background: #fafafa;
+      }
+      .hidden {
+        display: none;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 6px;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px;
+      }
+      .controls {
+        display: flex;
+        gap: 8px;
+      }
+      .stop-active {
+        background: #c62828 !important;
+      }
